@@ -7,10 +7,8 @@ This content will be displayed at the top of the index page.
 You can leave this empty if you don’t want to show any content.
 -->
 
-A static blog theme based on [Astro](https://astro.build), designed for clarity and focus.
+I build scalable solutions with focus and a commitment to continuous learning.
 
-With a deliberately minimal design, this layout ensures your content takes center stage. It's built for flexibility, offering customization options that honor its clean and elegant aesthetic.
+I’m dependable and dedicated to writing clear, maintainable code. I enjoy tackling challenges and expanding my skills along the way. Practicality and growth guide how I approach every project.
 
-Effortlessly share your thoughts in _a calm & dustless space._
-
-Check posts for details and view source on [GitHub](https://github.com/the3ash/astro-chiri).
+Outside of work, I enjoy experimenting with my homelab and spending time with my girlfriend.
