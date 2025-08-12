@@ -2,15 +2,81 @@
 import IndexLayout from '@/layouts/IndexLayout.astro'
 import About from '@/components/widgets/About.astro'
 import PostList from '@/components/widgets/PostList.astro'
+import ProjectList from '@/components/widgets/ProjectList.astro' // you'll need this
 import { themeConfig } from '@/config'
 import { getSortedFilteredPosts } from '@/utils/draft'
+import projects from '@/utils/projects';
 
 const posts = await getSortedFilteredPosts()
+// const projects = await getProjects() // get your projects data here
 ---
 
 <IndexLayout title={themeConfig.site.title} description={themeConfig.site.description}>
   <About />
   <main>
-    <PostList posts={posts} />
+    <div style="display:flex; align-items: center; gap: 10px">
+      <h2 class="section-title active" data-tab="posts">posts</h2>
+      <span>·</span>
+      <h2 class="section-title" data-tab="projects">projects</h2>
+    </div>
+
+    <div id="posts-section">
+      <PostList posts={posts} />
+    </div>
+    <div id="projects-section" style="display:none;">
+      <ProjectList projects={projects} />
+    </div>
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll<HTMLHeadingElement>('.section-title');
+      const postsSection = document.getElementById('posts-section');
+      const projectsSection = document.getElementById('projects-section');
+
+      if (!postsSection || !projectsSection) return;
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+
+          if (tab.dataset.tab === 'posts') {
+            postsSection.style.display = '';
+            projectsSection.style.display = 'none';
+          } else {
+            postsSection.style.display = 'none';
+            projectsSection.style.display = '';
+          }
+        });
+      });
+    });
+  </script>
 </IndexLayout>
+
+<style>
+  .section-title {
+    font-family: var(--serif);
+    font-size: var(--font-size-m);
+    font-style: italic;
+    letter-spacing: 0;
+    line-height: 1.75;
+    color: var(--text-secondary);
+    cursor: pointer;
+    border: none;
+  }
+
+  .section-title:hover {
+    color: var(--text-primary);
+  }
+
+  .section-title.active {
+    color: var(--text-primary);
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .section-title:hover {
+      color: var(--text-secondary);
+    }
+  }
+</style>
