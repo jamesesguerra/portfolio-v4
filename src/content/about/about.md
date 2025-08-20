@@ -11,4 +11,4 @@ I build scalable solutions with focus and a commitment to continuous learning.
 
 I’m dependable and dedicated to writing clear, maintainable code. I enjoy tackling challenges and expanding my skills along the way. Practicality and growth guide how I approach every project.
 
-Outside of work, I enjoy experimenting with my homelab and spending time with my girlfriend.
+Outside of work, I enjoy self-hosting stuff with my homelab, writing [articles](https://medium.com/@jamesesguerra025), and spending time with my girlfriend.
