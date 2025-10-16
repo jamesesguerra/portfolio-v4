@@ -29,7 +29,7 @@ const posts = await getSortedFilteredPosts()
   </main>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('astro:after-swap', () => {
       const tabs = document.querySelectorAll<HTMLHeadingElement>('.section-title');
       const postsSection = document.getElementById('posts-section');
       const projectsSection = document.getElementById('projects-section');
